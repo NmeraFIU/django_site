@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <title>Image Gallery</title>
+</head>
+<body>
+    <center>
+        <h1>Norberto's Art Gallery</h1>
+        <h2>Django</h2>
+        <hr/>
+        {% for results in imggal%}
+        {{results.imgtitle}}<br/>
+        {{results.imgdesc}}<br/>
+        <img src="{{results.image.url}}" alt="{{results.imgtitle}}" title="{{results.imgtitle}}"/>
+        <hr/>
+        {% endfor %}
+    </center>
+</body>
+</html>
+{% endblock %}

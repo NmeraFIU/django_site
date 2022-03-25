@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from main.forms import CreateNewList
-from .models import ToDoList, Item
+from .models import ToDoList, Item, imggal
+from pathlib import Path
+import os
 # Create your views here.
 
 def index(response, id):
@@ -26,11 +28,20 @@ def index(response, id):
             else:
                 print("invalid")
             
-    return render(response, "main/list.html", {"ls": ls})
+    return render(response, "list.html", {"ls": ls})
 
 
 def home(response):
-    return render(response, "main/home.html", {})
+    return render(response, "home.html", {})
+
+
+def gallery(request):
+    return render(request, 'gallery.html')
+
+
+def imagedisplay(request):
+    resultsdisplay=imggal.objects.all()
+    return render(request, 'gallery.html', {'imggal':resultsdisplay})
 
 
 def create(response):
@@ -47,5 +58,5 @@ def create(response):
     else:
         form = CreateNewList()
 
-    return render(response, "main/create.html", {"form": form})
+    return render(response, "create.html", {"form": form})
 

@@ -15,4 +15,13 @@ class Item(models.Model):
 
     def __str__(self):
         return self.text
+
+class Post(models.Model):
+    header_image = models.ImageField()
+
+
+class imggal(models.Model):
+    imgtitle=models.CharField(max_length=100)
+    imgdesc=models.CharField(max_length=100)
+    image=models.ImageField(upload_to='images/')
         
