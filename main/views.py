@@ -6,7 +6,7 @@ from pathlib import Path
 import os
 # Create your views here.
 
-def index(response, id):
+def idpage(response, id):
     ls = ToDoList.objects.get(id=id)
 
     if response.method == "POST":
@@ -31,8 +31,8 @@ def index(response, id):
     return render(response, "list.html", {"ls": ls})
 
 
-def home(response):
-    return render(response, "home.html", {})
+def index(response):
+    return render(response, "index.html", {})
 
 
 def gallery(request):
